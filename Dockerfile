@@ -34,8 +34,8 @@ RUN apk add --no-cache \
                                                 # Copy configuration files
                                                 COPY nginx.conf /etc/nginx/http.d/default.conf
 
-                                                # Expose port 80
-                                                EXPOSE 80
+                                                # Expose port 8080
+EXPOSE 8080
 
-                                                # Start Nginx and PHP-FPM
-                                                CMD php-fpm -D && nginx -g 'daemon off;'
+# Start Nginx and PHP-FPM
+CMD ["sh", "-c", "php-fpm -D && nginx -g 'daemon off;'"]
